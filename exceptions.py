@@ -3,29 +3,33 @@ All known exceptions of Samenloop package
 """
 
 
-class SamenLoopError(Exception):
+class SamenLopenError(Exception):
     pass
 
 
-class HTTPError(SamenLoopError):
+class HTTPError(SamenLopenError):
     pass
 
 
-class ConfigurationError(SamenLoopError):
+class ConfigurationError(SamenLopenError):
     pass
 
 
-class UnknownValue(SamenLoopError):
+class UnknownValue(SamenLopenError):
     pass
 
 
-class EnvVars(SamenLoopError):
+class UnknownResource(SamenLopenError):
     pass
 
 
-class TooLongTMR(SamenLoopError):
+class EnvVars(SamenLopenError):
     pass
 
 
-class APIRateLimitReached(SamenLoopError):
+class TooLongTMR(SamenLopenError):
+    pass
+
+
+class APIRateLimitReached(SamenLopenError):
     pass
