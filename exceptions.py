@@ -33,3 +33,6 @@ class TooLongTMR(SamenLopenError):
 
 class APIRateLimitReached(SamenLopenError):
     pass
+
+class TimeOut(SamenLopenError):
+    pass
