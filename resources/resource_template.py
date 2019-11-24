@@ -8,7 +8,7 @@ from gevent import Timeout
 from gevent.lock import BoundedSemaphore
 from redis import StrictRedis
 
-from .exceptions import TooLongTMR
+from exceptions import TooLongTMR
 from helpers import timestamp_millisecs, time_elapsed
 
 
@@ -35,26 +35,14 @@ class ResourceManger:
     index_gevent_lock = BoundedSemaphore(1)
 
     @classmethod
-    def calculate_waiting_time(cls, hits):
-        """ Gradually increase waiting time to fit in the window"""
-        res = None
-        if hits < cls.RATE_CALL_LIMIT * 0.5:
-            res =  0.2
-        elif hits < cls.RATE_CALL_LIMIT * 0.6:
-            res = 1.5
-        elif hits < cls.RATE_CALL_LIMIT * 0.8:
-            res =  4
-        elif hits < cls.RATE_CALL_LIMIT * 0.9:
-            res =  6
-        elif hits < cls.RATE_CALL_LIMIT * 0.95:
-            res =  10
-        else:
-            res = 12
-        
-        if arrow.utcnow().timestamp % 60 == 0:
-            print("DBG: cex hits counter = ", res, hits)
+    def calculate_waiting_time(cls, hits=None):
+        """
+        User can defind here its own logic of calculation.
+        As defaoult will return just 0
+        """
 
-        return res
+        time_to_sleep = 0
+        return time_to_sleep
 
     @classmethod
     def get_hits_num(cls):
@@ -92,7 +80,8 @@ class ResourceManger:
             doesn't need it like HTTP (it's a constant authenticated connection). """
 
         if timeout is None:
-            timeout = 20
+            print("Warning, timeout not set. using defoult: 200")
+            timeout = 200
 
         try:
             with Timeout(seconds=timeout):
