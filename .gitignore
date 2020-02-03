@@ -105,3 +105,6 @@ venv.bak/
 
 # Pycharm
 .idea/
+
+# data files (to be moved to S3 bucket)
+data/
