@@ -4,7 +4,6 @@ import gevent
 
 from flask import Blueprint, request, abort
 
-from resources import keygens
 from common import ResourceHandler
 from conf import BaseConfig, Sleep
 from exceptions import *

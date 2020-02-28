@@ -1,0 +1,5 @@
+keys:
+  - id: 'id-0'
+    secret: 'blabla0'
+  - id: 'id-1'
+    secret: 'blabla1'

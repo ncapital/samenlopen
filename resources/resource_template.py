@@ -14,6 +14,8 @@ from helpers import timestamp_millisecs, time_elapsed
 
 hits = []
 
+class KeyGen:
+    pass
 
 class ResourceManger:
     """
