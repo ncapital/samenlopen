@@ -1,5 +1,13 @@
+from dataclasses import dataclass
+
 from exceptions import *
 from resources import keygens
+
+
+@dataclass
+class Resources:
+    RESOURCE_0 = 'r0'
+    RESOURCE_1 = 'r1'
 
 
 class ResourceHandler:
@@ -12,3 +20,6 @@ class ResourceHandler:
             raise UnknownResource(resource_name)
 
         return keygen
+
+
+RESOURCE_MAP = dict()  # resource_name: resource_obj

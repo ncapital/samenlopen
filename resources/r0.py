@@ -21,7 +21,7 @@ class KeyGen:
     as key3 is the same on both and so on
     """
 
-    keys = Bit2c('resources/bit2c.yaml')
+    keys = Bit2c('resources/r0.yaml')
     conn = StrictRedis()
 
     @classmethod
