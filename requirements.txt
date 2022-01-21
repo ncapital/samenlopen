@@ -10,7 +10,7 @@ Flask==1.1.2
 gevent==20.9.0
 greenlet==0.4.17
 idna==2.10
-ipython==7.18.1
+ipython==7.31.1
 ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.17.0
